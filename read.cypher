@@ -44,3 +44,7 @@ RETURN n;
 
 MATCH (n:M)-[:Nat_RELATIONSHIP]-(e:Nat) 
 RETURN COUNT( DISTINCT n) as count
+
+MATCH (user:User)
+WHERE toInteger(user.credit_limit) = 200
+RETURN user
