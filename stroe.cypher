@@ -14,3 +14,11 @@ MATCH (e:Employee) ,  (c:Customer)
 AND id(e) = 
 AND id(c) = 
 CREATE (n)-[:AMADEUS_FLIGHT_CUSTOMER_RELATION]->(c)
+
+
+MATCH (n:node) where id(n) = 111
+CALL apoc.refactor.cloneNodes([n], true)
+YIELD output
+MATCH p=(output)--()
+RETURN output
+
